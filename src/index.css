@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600&family=Jost:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Jost", ui-sans-serif, system-ui, sans-serif;
+  --font-copy: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-magenta-accent: #b86b43;
+  --color-magenta-accent-hover: #d8a65f;
+}
+
+/* Custom premium scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+html.dark ::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 99px;
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: #111111;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-magenta-accent);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #f4eadc;
+  color: #111111;
+}
+
+html.dark {
+  background-color: #02040a;
+  color: #ffffff;
+}
+
+body {
+  min-width: 320px;
+  background:
+    radial-gradient(circle at top right, rgba(184, 107, 67, 0.18), transparent 34rem),
+    radial-gradient(circle at 16% 4%, rgba(90, 128, 118, 0.2), transparent 28rem),
+    linear-gradient(180deg, #fff6eb 0%, #f4eadc 46%, #fffaf1 100%);
+}
+
+html.dark body {
+  background:
+    radial-gradient(circle at top right, rgba(184, 107, 67, 0.3), transparent 34rem),
+    radial-gradient(circle at 18% 0%, rgba(90, 128, 118, 0.22), transparent 30rem),
+    linear-gradient(180deg, #102321 0%, #060908 44%, #050507 100%);
+}
+
+/* Base custom interactive layout classes */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-copy {
+  font-family: var(--font-copy);
+}
+
+.copy-text {
+  max-width: 68ch;
+  font-family: var(--font-copy);
+  font-size: clamp(1.02rem, 0.98rem + 0.22vw, 1.13rem);
+  font-weight: 400;
+  line-height: 1.86;
+  letter-spacing: 0;
+  color: #31433e;
+  text-wrap: pretty;
+}
+
+.dark .copy-text {
+  color: rgba(248, 250, 252, 0.84);
+}
+
+.micro-copy {
+  font-family: var(--font-copy);
+  line-height: 1.76;
+  letter-spacing: 0;
+  color: #465852;
+  text-wrap: pretty;
+}
+
+.dark .micro-copy {
+  color: rgba(248, 250, 252, 0.76);
+}
+.text-magenta-accent {
+  color: var(--color-magenta-accent);
+}
+.bg-magenta-accent {
+  background-color: var(--color-magenta-accent);
+}
+.border-magenta-accent {
+  border-color: var(--color-magenta-accent);
+}
+
+.hero-grid-surface,
+.footer-grid-surface {
+  position: relative;
+  isolation: isolate;
+}
+
+.hero-grid-surface::before,
+.footer-grid-surface::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.13) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.13) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0.7), transparent);
+}
+
+.hero-grid-surface::after,
+.footer-grid-surface::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 76% 12%, rgba(216, 166, 95, 0.82), transparent 18rem),
+    radial-gradient(circle at 22% 10%, rgba(122, 160, 152, 0.35), transparent 22rem),
+    radial-gradient(circle at 42% 58%, rgba(184, 107, 67, 0.62), transparent 26rem),
+    linear-gradient(180deg, #2f625b 0%, #17312e 42%, #090706 100%);
+}
+
+html:not(.dark) .hero-grid-surface::before,
+html:not(.dark) .footer-grid-surface::before {
+  background-image:
+    linear-gradient(rgba(93, 52, 38, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(93, 52, 38, 0.12) 1px, transparent 1px);
+}
+
+html:not(.dark) .hero-grid-surface::after,
+html:not(.dark) .footer-grid-surface::after {
+  background:
+    radial-gradient(circle at 76% 12%, rgba(255, 246, 235, 0.95), transparent 18rem),
+    radial-gradient(circle at 20% 6%, rgba(122, 160, 152, 0.38), transparent 22rem),
+    radial-gradient(circle at 45% 58%, rgba(184, 107, 67, 0.42), transparent 26rem),
+    linear-gradient(180deg, #ead5c1 0%, #b86b43 48%, #102321 100%);
+}
+
+.premium-card {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 22px 70px rgba(93, 52, 38, 0.12);
+}
+
+html.dark .premium-card {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    0 24px 90px rgba(0, 0, 0, 0.48);
+}
+
+.language-flag {
+  min-width: 42px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+}
+
+.language-flag::before,
+.language-flag::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.language-flag::after {
+  z-index: 1;
+  background: linear-gradient(rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.34));
+}
+
+.language-flag-br::before {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCw-yhTYdTLoHOj_Ak2799iRmlZTTeEYxpaw&s");
+  background-position: center;
+  background-size: cover;
+}
+
+.language-flag-uk::before {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg/330px-Flag_of_the_United_Kingdom_%283-5%29.svg.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.logo-cinema-hover {
+  will-change: filter, transform;
+}
+
+.logo-cinema-hover:hover {
+  animation: cinema-logo-pulse 1.2s linear infinite;
+}
+
+@keyframes cinema-logo-pulse {
+  0% {
+    filter: brightness(0) saturate(100%) invert(62%) sepia(12%) saturate(670%) hue-rotate(124deg) brightness(92%) contrast(88%);
+  }
+  33% {
+    filter: brightness(0) saturate(100%) invert(49%) sepia(34%) saturate(815%) hue-rotate(341deg) brightness(91%) contrast(90%);
+  }
+  66% {
+    filter: brightness(0) saturate(100%) invert(74%) sepia(35%) saturate(706%) hue-rotate(354deg) brightness(94%) contrast(88%);
+  }
+  100% {
+    filter: brightness(0) saturate(100%) invert(62%) sepia(12%) saturate(670%) hue-rotate(124deg) brightness(92%) contrast(88%);
+  }
+}
