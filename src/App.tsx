@@ -170,7 +170,7 @@ export default function App() {
                   Matheus Martendal<span className="font-light text-white/45 text-xl sm:text-2xl lg:text-3xl align-super ml-1">™</span>
                 </h1>
                 <h1 className="text-[1.45rem] sm:text-2xl lg:text-3xl xl:text-4xl tracking-tight leading-[1.14] font-display font-light text-white/95 max-w-4xl">
-                  {isPt ? 'Web Designer e Front-End Dev' : 'Web Designer & Front-End Developer'}
+                  {isPt ? 'AI Product Builder, AI Product Design e Desenvolvedor Front-End Junior' : 'AI Product Builder, AI Product Design & Junior Front-End Developer'}
                 </h1>
               </div>
 
@@ -210,7 +210,7 @@ export default function App() {
                   Matheus Martendal
                 </h1>
                 <h2 className="text-[1.45rem] sm:text-[1.65rem] tracking-tight leading-[1.14] font-display font-light text-white/95 mt-4">
-                  {isPt ? 'Web Designer e Front-End Dev' : 'Web Designer & Front-End Developer'}
+                  {isPt ? 'AI Product Builder, AI Product Design e Desenvolvedor Front-End Junior' : 'AI Product Builder, AI Product Design & Junior Front-End Developer'}
                 </h2>
                 <button
                   onClick={handleScrollToProjects}

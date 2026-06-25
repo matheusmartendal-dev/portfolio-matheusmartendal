@@ -1,6 +1,6 @@
 # Matheus Martendal™ Portfolio
 
-Meu portfólio pessoal como Web Designer e Front-End Developer.
+Meu portfólio pessoal como AI Product Builder, AI Product Design e Desenvolvedor Front-End Junior.
 
 Este projeto nasceu para apresentar meu trabalho de um jeito mais próximo do que eu gosto de construir no dia a dia: interfaces com narrativa, bom acabamento visual, foco em conversão e uma experiência que mistura design, tecnologia e estratégia.
 
