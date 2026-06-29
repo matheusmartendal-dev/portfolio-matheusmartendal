@@ -13,6 +13,7 @@ export default function App() {
   const [darkMode, setDarkMode] = useState(true);
   const [lang, setLang] = useState<'pt' | 'en'>('pt');
   const [currentTime, setCurrentTime] = useState('');
+  const whatsappIcon = new URL('./assets/whatsapp-icon.svg', import.meta.url).href;
 
   useEffect(() => {
     if (darkMode) {
@@ -170,18 +171,26 @@ export default function App() {
                   Matheus Martendal<span className="font-light text-white/45 text-xl sm:text-2xl lg:text-3xl align-super ml-1">™</span>
                 </h1>
                 <h1 className="text-[1.45rem] sm:text-2xl lg:text-3xl xl:text-4xl tracking-tight leading-[1.14] font-display font-light text-white/95 max-w-4xl">
-                  {isPt ? 'AI Product Builder, Product Designer e Desenvolvedor Front-End Junior' : 'AI Product Builder, Product Designer & Junior Front-End Developer'}
+                  {isPt ? 'AI Product Builder, Product Designer e Desenvolvedor Front-End' : 'AI Product Builder, Product Designer & Front-End Developer'}
                 </h1>
               </div>
 
               {/* See Selected Projects Block */}
-              <div className="flex flex-wrap items-center justify-between gap-4 pt-1 pb-1 md:gap-6 md:pt-2 md:pb-6">
+              <div className="flex flex-wrap items-center gap-4 pt-1 pb-1 md:gap-6 md:pt-2 md:pb-6">
                 <button 
                   onClick={handleScrollToProjects}
                   className="py-3 px-6 bg-orange-500 hover:bg-teal-300 text-white hover:text-[#102321] rounded-full text-xs font-sans font-medium transition-all shadow-lg shadow-black/25 flex items-center gap-1 border border-white/15 cursor-pointer hover:scale-105 active:scale-98 duration-200"
                 >
                   <span className="font-medium text-[13px] mr-0.5">+</span> {isPt ? 'Ver projetos' : 'See projects'}
                 </button>
+                <a
+                  href="https://wa.me/5548988025100"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group py-3 px-6 bg-white/10 hover:bg-teal-300 text-white hover:text-[#102321] rounded-full text-xs font-sans font-medium transition-all shadow-lg shadow-black/25 flex items-center gap-2 border border-white/15 cursor-pointer hover:scale-105 active:scale-98 duration-200 backdrop-blur"
+                >
+                  <img src={whatsappIcon} alt="" className="w-4 h-4 invert group-hover:invert-0" aria-hidden="true" /> WhatsApp
+                </a>
               </div>
 
             </div>
@@ -210,14 +219,24 @@ export default function App() {
                   Matheus Martendal
                 </h1>
                 <h2 className="text-[1.45rem] sm:text-[1.65rem] tracking-tight leading-[1.14] font-display font-light text-white/95 mt-4">
-                  {isPt ? 'AI Product Builder, Product Designer e Desenvolvedor Front-End Junior' : 'AI Product Builder, Product Designer & Junior Front-End Developer'}
+                  {isPt ? 'AI Product Builder, Product Designer e Desenvolvedor Front-End' : 'AI Product Builder, Product Designer & Front-End Developer'}
                 </h2>
-                <button
-                  onClick={handleScrollToProjects}
-                  className="mt-8 py-3 px-6 bg-orange-500 hover:bg-teal-300 text-white hover:text-[#102321] rounded-full text-xs font-sans font-medium transition-all shadow-lg shadow-black/25 inline-flex items-center gap-1 border border-white/15 cursor-pointer active:scale-98 duration-200"
-                >
-                  <span className="font-medium text-[13px] mr-0.5">+</span> {isPt ? 'Ver projetos' : 'See projects'}
-                </button>
+                <div className="mt-8 flex flex-wrap items-center gap-3">
+                  <button
+                    onClick={handleScrollToProjects}
+                    className="py-3 px-6 bg-orange-500 hover:bg-teal-300 text-white hover:text-[#102321] rounded-full text-xs font-sans font-medium transition-all shadow-lg shadow-black/25 inline-flex items-center gap-1 border border-white/15 cursor-pointer active:scale-98 duration-200"
+                  >
+                    <span className="font-medium text-[13px] mr-0.5">+</span> {isPt ? 'Ver projetos' : 'See projects'}
+                  </button>
+                  <a
+                    href="https://wa.me/5548988025100"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group py-3 px-6 bg-white/10 hover:bg-teal-300 text-white hover:text-[#102321] rounded-full text-xs font-sans font-medium transition-all shadow-lg shadow-black/25 inline-flex items-center gap-2 border border-white/15 cursor-pointer active:scale-98 duration-200 backdrop-blur"
+                  >
+                    <img src={whatsappIcon} alt="" className="w-4 h-4 invert group-hover:invert-0" aria-hidden="true" /> WhatsApp
+                  </a>
+                </div>
               </div>
             </div>
           </section>
@@ -255,7 +274,7 @@ export default function App() {
                   {[
                     'HTML',
                     'CSS',
-                    isPt ? 'Javascript básico' : 'Vanilla Javascript',
+                    'Javascript',
                     'React JS',
                     'Typescript',
                     'Wordpress',
