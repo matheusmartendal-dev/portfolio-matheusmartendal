@@ -1,28 +1,26 @@
-# Matheus Martendal™ Portfolio
+# Matheus Martendal - Portfólio
 
-Meu portfólio pessoal como AI Product Builder, Product Designer e Desenvolvedor Front-End Junior.
+Portfólio profissional de Matheus Martendal, Web Designer e Desenvolvedor Frontend.
 
-Este projeto nasceu para apresentar meu trabalho de um jeito mais próximo do que eu gosto de construir no dia a dia: interfaces com narrativa, bom acabamento visual, foco em conversão e uma experiência que mistura design, tecnologia e estratégia.
+O projeto reúne trabalhos de web design, UI design, landing pages e desenvolvimento frontend. A proposta é apresentar cada case com contexto, decisões de design e resultados, em uma experiência responsiva e bilíngue.
 
-## Sobre o projeto
+## Sobre o portfólio
 
-Aqui eu reuni alguns cases de landing pages, produtos digitais e experiências web que representam bem meu jeito de trabalhar. A ideia não era criar uma página estática simples, mas um portfólio com cara de produto: navegação fluida, troca de idioma, modo claro/escuro, previews interativos e uma apresentação mais imersiva dos projetos.
+Sou Web Designer e Desenvolvedor Frontend, com mais de 6 anos de experiência e mais de 40 projetos digitais entregues. Atuo da definição do briefing à publicação, combinando design, prototipagem e implementação para criar interfaces claras, responsivas e orientadas à conversão.
 
-O site foi construído com React, TypeScript e Vite, usando Tailwind CSS para a base visual, Motion para pequenas interações e Lucide para os ícones.
+Minha experiência inclui projetos para produtos educacionais premium, agências e mais de 20 clientes atendidos como freelancer.
 
-## O que tem no site
+## Funcionalidades
 
-- Apresentação pessoal em português e inglês.
+- Conteúdo em português e inglês.
 - Modo claro e escuro.
-- Seção de stack e ecossistema de ferramentas.
-- Lista de projetos com navegação por cards.
-- Cases detalhados com contexto, estratégia, resultados e previews.
-- Mockups interativos em desktop e mobile usando iframes.
-- Seção "Sobre mim" com uma narrativa mais pessoal.
-- Links sociais e contato por e-mail.
-- Otimizações de carregamento para imagens e iframes.
+- Navegação responsiva para desktop e dispositivos móveis.
+- Galeria de projetos com cases detalhados.
+- Previews interativos em diferentes tamanhos de tela.
+- Seção sobre mim com foto e trajetória profissional.
+- Links para LinkedIn, Behance, GitHub, e-mail e WhatsApp.
 
-## Stack
+## Tecnologias
 
 - React 19
 - TypeScript
@@ -31,69 +29,32 @@ O site foi construído com React, TypeScript e Vite, usando Tailwind CSS para a 
 - Motion
 - Lucide React
 
-## Como rodar localmente
+## Como executar
 
-Antes de tudo, instale as dependências:
+Clone o repositório e instale as dependências:
 
 ```bash
+git clone https://github.com/matheusmartendal-dev/portfolio-matheusmartendal.git
+cd portfolio-matheusmartendal
 npm install
 ```
 
-Depois rode o servidor de desenvolvimento:
+Inicie o ambiente de desenvolvimento:
 
 ```bash
 npm run dev
 ```
 
-Por padrão, o Vite sobe em:
-
-```bash
-http://localhost:3000/
-```
+O projeto ficará disponível em `http://localhost:3000/`.
 
 ## Scripts
 
-```bash
-npm run dev
-```
-
-Roda o projeto em modo desenvolvimento.
-
-```bash
-npm run build
-```
-
-Gera a versão de produção dentro da pasta `dist`.
-
-```bash
-npm run preview
-```
-
-Abre um preview local da versão de produção.
-
-```bash
-npm run lint
-```
-
-Roda a checagem de TypeScript com `tsc --noEmit`.
-
-## Variáveis de ambiente
-
-Para a versão atual do portfólio, nenhuma variável de ambiente é necessária para rodar a interface.
-
-O arquivo `.env.example` fica no repositório apenas como referência segura para configurações públicas futuras. Arquivos reais como `.env`, `.env.local` e variações locais são ignorados pelo Git.
-
-Antes de publicar qualquer mudança, eu costumo conferir se não existe nenhuma chave, token ou segredo em arquivos versionados.
-
-## Performance
-
-Como o portfólio usa imagens externas e previews vivos de outros sites dentro de iframes, tomei alguns cuidados para manter a experiência mais leve:
-
-- Imagens fora do primeiro impacto usam `loading="lazy"`.
-- Iframes dos cases também carregam de forma preguiçosa.
-- Imagens principais usam `fetchPriority="high"` quando fazem parte do topo.
-- Imagens recebem `width`, `height` e `decoding="async"` para ajudar o navegador a renderizar melhor.
-- O domínio do Imgur usa `preconnect` e `dns-prefetch` no `index.html`.
+| Comando | Descrição |
+| --- | --- |
+| `npm run dev` | Inicia o servidor de desenvolvimento. |
+| `npm run build` | Gera a versão de produção em `dist/`. |
+| `npm run preview` | Abre uma prévia local da versão de produção. |
+| `npm run lint` | Executa a verificação do TypeScript. |
 
 ## Estrutura principal
 
@@ -114,27 +75,8 @@ src/
 
 ## Contato
 
-Se quiser falar comigo sobre design, front-end, landing pages, CRO ou algum projeto novo:
-
-```text
-matheus.martendal@gmail.com
-(48) 98802-5100
-```
-
-Também estou no Behance:
-
-```text
-https://www.behance.net/matheusmartend
-```
-
-LinkedIn:
-
-```text
-https://www.linkedin.com/in/matheus-martendal/
-```
-
-GitHub:
-
-```text
-https://github.com/matheusmartendal-dev
-```
+- [Portfólio](https://portfolio-matheusmartendal.vercel.app)
+- [LinkedIn](https://www.linkedin.com/in/matheus-martendal/)
+- [Behance](https://www.behance.net/matheusmartend)
+- [GitHub](https://github.com/matheusmartendal-dev)
+- E-mail: matheus.martendal@gmail.com
