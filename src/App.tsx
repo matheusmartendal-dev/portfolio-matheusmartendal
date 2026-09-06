@@ -156,7 +156,7 @@ export default function App() {
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/8 to-black/75 pointer-events-none" />
             
             {/* Left Portion: Welcome Message, Navigation Trigger, and Giant Bold Typography signature */}
-            <div className="relative z-10 hidden lg:flex lg:col-span-8 flex-col justify-between text-left space-y-12 order-2 lg:order-1">
+            <div className="relative z-10 hidden lg:flex lg:col-span-12 flex-col justify-between text-left space-y-12 order-2 lg:order-1">
               
               {/* Context and Narrative Tagline */}
               <div className="space-y-2">
@@ -171,7 +171,7 @@ export default function App() {
                   Matheus Martendal<span className="font-light text-white/45 text-xl sm:text-2xl lg:text-3xl align-super ml-1">™</span>
                 </h1>
                 <h1 className="text-[1.45rem] sm:text-2xl lg:text-3xl xl:text-4xl tracking-tight leading-[1.14] font-display font-light text-white/95 max-w-4xl">
-                  {isPt ? 'AI Product Builder, Product Designer e Desenvolvedor Front-End' : 'AI Product Builder, Product Designer & Front-End Developer'}
+                  {isPt ? 'Web Designer e Desenvolvedor Frontend' : 'Web Designer & Frontend Developer'}
                 </h1>
               </div>
 
@@ -195,22 +195,8 @@ export default function App() {
 
             </div>
 
-            {/* Right Portion: SINGLE studio photo mockup slot requested by the user */}
-            <div className="relative z-10 lg:col-span-4 flex flex-col justify-center items-start lg:items-stretch order-1 lg:order-2">
-              <div className="hidden lg:block relative w-full max-w-[245px] sm:max-w-none lg:max-w-none mx-0 lg:mx-0 h-[330px] sm:h-auto sm:aspect-[4/5] lg:aspect-[3/4] rounded-[30px] md:rounded-[38px] overflow-hidden border border-white/15 shadow-2xl group bg-black/50 transition-all duration-500 hover:border-orange-500/60">
-                <img 
-                  src="https://i.imgur.com/nl92NXC.png" 
-                  alt="Matheus Martendal Portrait piece" 
-                  width="896"
-                  height="1195"
-                  className="w-full h-full object-cover object-top grayscale brightness-80 group-hover:brightness-105 group-hover:grayscale-0 transition-all duration-700 hover:scale-103"
-                  fetchPriority="high"
-                  decoding="async"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#102321]/60 via-transparent to-white/10 pointer-events-none" />
-              </div>
-
+            {/* Mobile introduction */}
+            <div className="relative z-10 lg:hidden flex flex-col justify-center items-start lg:items-stretch order-1 lg:order-2">
               <div className="block lg:hidden text-left max-w-[360px]">
                 <span className="text-[11px] tracking-widest uppercase font-mono font-bold text-[#4f625d] dark:text-white/70 block mb-5">
                   {isPt ? 'Florianópolis, Brasil' : 'Florianópolis, Brazil'}
@@ -219,7 +205,7 @@ export default function App() {
                   Matheus Martendal
                 </h1>
                 <h2 className="text-[1.45rem] sm:text-[1.65rem] tracking-tight leading-[1.14] font-display font-light text-white/95 mt-4">
-                  {isPt ? 'AI Product Builder, Product Designer e Desenvolvedor Front-End' : 'AI Product Builder, Product Designer & Front-End Developer'}
+                  {isPt ? 'Web Designer e Desenvolvedor Frontend' : 'Web Designer & Frontend Developer'}
                 </h2>
                 <div className="mt-8 flex flex-wrap items-center gap-3">
                   <button
