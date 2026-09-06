@@ -21,10 +21,10 @@ export default function About({ lang }: AboutProps) {
               {isPt ? '[Sobre mim]' : '[About me]'}
             </span>
           </div>
-          <div className="lg:hidden relative w-full max-w-[245px] h-[330px] mt-6 mb-8 rounded-[28px] overflow-hidden border border-white/20 dark:border-white/10 shadow-2xl bg-[#ead5c1] dark:bg-[#102321]">
+          <div className="relative w-full max-w-[245px] h-[330px] mt-6 mb-8 rounded-[28px] overflow-hidden border border-white/20 dark:border-white/10 shadow-2xl bg-[#ead5c1] dark:bg-[#102321]">
             <img
               src="https://i.imgur.com/nl92NXC.png"
-              alt="Matheus Martendal Portrait piece"
+              alt={isPt ? "Retrato de Matheus Martendal" : "Portrait of Matheus Martendal"}
               width="896"
               height="1195"
               className="w-full h-full object-cover object-top grayscale brightness-90 dark:brightness-75"
@@ -43,45 +43,17 @@ export default function About({ lang }: AboutProps) {
         <div className="space-y-6 copy-text">
           {isPt ? (
             <>
-              <p>
-                Sou um designer e desenvolvedor front-end que gosta de criar páginas que fazem sentido para quem visita e para quem vende. Nos últimos 6 anos, trabalhei principalmente com sites, landing pages e experiências digitais focadas em conversão.
-              </p>
-              <p>
-                Gosto de participar do projeto de ponta a ponta. Entender o problema, organizar a narrativa, desenhar no Figma, pensar em CRO, implementar no front-end e depois olhar os dados para ajustar o que precisa melhorar. Para mim, uma boa interface não é só bonita. Ela precisa carregar bem, ser fácil de entender e ajudar a pessoa certa a tomar uma decisão.
-              </p>
-              <p>
-                Boa parte da minha experiência veio trabalhando perto de times de marketing, tráfego pago e vendas. Isso me ensinou a olhar para uma página como parte de um funil real, onde design, copy, anúncios, comportamento do usuário e atendimento comercial precisam conversar entre si.
-              </p>
-              <p>
-                Também sou bem curioso por tecnologia e inteligência artificial aplicada ao design de produtos. Gosto de testar ferramentas, criar processos mais rápidos e encontrar jeitos de transformar boas ideias em experiências digitais mais claras, úteis e bonitas.
-              </p>
-              <p>
-                Fora do computador, como todo brasileiro, sou apaixonado por futebol, churrasco e tecnologia. Também adoro conhecer culturas diferentes, então minha cabeça já costuma estar pensando na próxima viagem.
-              </p>
-              <p>
-                No fim, eu gosto de trabalhar com pessoas que querem construir algo com intenção. Quando estratégia, design, tecnologia e marketing caminham juntos, o projeto fica mais leve de executar e muito mais forte para gerar resultado.
-              </p>
+              <p>Sou Matheus Martendal, Web Designer e Desenvolvedor Frontend, com mais de 6 anos de experiência e mais de 40 projetos digitais entregues. Crio sites, landing pages e interfaces responsivas que conectam os objetivos do negócio às necessidades de quem navega.</p>
+              <p>Participo de cada etapa do projeto, do briefing à publicação: organizo a informação, desenvolvo wireframes e protótipos no Figma e implemento as interfaces com WordPress, HTML, CSS e JavaScript. Meu foco é unir clareza visual, usabilidade e conversão.</p>
+              <p>Minha trajetória passa por agências, produtos educacionais premium e projetos para mais de 20 clientes como freelancer. Trabalhando junto a equipes de marketing, produto e liderança, transformo ideias e requisitos de negócio em experiências digitais consistentes.</p>
+              <p>Sou formado em Design pela UNICESUSC e estou em Florianópolis, com disponibilidade para trabalho remoto. Fora do computador, gosto de futebol, churrasco, tecnologia e de conhecer novas culturas.</p>
             </>
           ) : (
             <>
-              <p>
-                I am a designer and front-end developer who enjoys creating pages that make sense for both the visitor and the business behind them. Over the last 6 years, I have worked mostly with websites, landing pages, and conversion-focused digital experiences.
-              </p>
-              <p>
-                I like being involved from beginning to end. Understanding the problem, shaping the narrative, designing in Figma, thinking through CRO, building the front end, and then looking at the data to improve what needs attention. To me, a good interface is not only beautiful. It needs to load well, feel clear, and help the right person make a decision.
-              </p>
-              <p>
-                A lot of my experience came from working closely with marketing, paid traffic, and sales teams. That taught me to see a page as part of a real funnel, where design, copy, ads, user behavior, and commercial follow-up all need to work together.
-              </p>
-              <p>
-                I am also deeply curious about technology and artificial intelligence applied to product design. I like testing tools, improving workflows, and finding ways to turn good ideas into clearer, more useful, and better-looking digital experiences.
-              </p>
-              <p>
-                Away from the computer, like a good Brazilian, I love football, barbecue, and technology. I also love getting to know different cultures, so my mind is usually already thinking about the next trip.
-              </p>
-              <p>
-                In the end, I enjoy working with people who want to build with intention. When strategy, design, technology, and marketing move together, the work feels lighter to execute and much stronger in results.
-              </p>
+              <p>I’m Matheus Martendal, a Web Designer and Frontend Developer with over 6 years of experience and more than 40 digital projects delivered. I create websites, landing pages, and responsive interfaces that connect business goals with the needs of the people using them.</p>
+              <p>I work across every stage of a project, from brief to launch: structuring information, developing wireframes and prototypes in Figma, and implementing interfaces with WordPress, HTML, CSS, and JavaScript. My focus is on visual clarity, usability, and conversion.</p>
+              <p>My experience spans agencies, premium educational products, and freelance projects for over 20 clients. Working alongside marketing, product, and leadership teams, I turn ideas and business requirements into consistent digital experiences.</p>
+              <p>I hold a bachelor’s degree in Design from UNICESUSC and am based in Florianópolis, available for remote work. Away from the computer, I enjoy football, barbecue, technology, and discovering new cultures.</p>
             </>
           )}
         </div>
