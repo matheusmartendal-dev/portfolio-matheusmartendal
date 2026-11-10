@@ -78,5 +78,5 @@ src/
 - [Portfólio](https://portfolio-matheusmartendal.vercel.app)
 - [LinkedIn](https://www.linkedin.com/in/matheus-martendal/)
 - [Behance](https://www.behance.net/matheusmartend)
-- [GitHub](https://github.com/matheusmartendal-dev)
+- [GitHub](https://github.com/matheusmartendal-dev/portfolio-matheusmartendal)
 - E-mail: matheus.martendal@gmail.com

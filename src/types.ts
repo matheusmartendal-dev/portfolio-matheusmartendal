@@ -32,3 +32,5 @@ export interface InvestmentStock {
   change: number;
   trendingUp: boolean;
 }
+
+export type Route = '/' | '/landing-pages' | '/automacoes-ia';

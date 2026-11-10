@@ -15,7 +15,7 @@ export default function About({ lang }: AboutProps) {
       <div className="max-w-4xl space-y-9">
         <div>
           <div className="flex items-center gap-3 mb-2 text-teal-500 dark:text-teal-300 font-mono tracking-widest text-[11px] font-bold">
-            <span>06.</span>
+            <span>04.</span>
             <span className="h-px w-8 bg-orange-500"></span>
             <span className="text-black dark:text-white uppercase font-bold text-xs">
               {isPt ? '[Sobre mim]' : '[About me]'}
@@ -46,14 +46,14 @@ export default function About({ lang }: AboutProps) {
               <p>Sou Matheus Martendal, Web Designer e Desenvolvedor Frontend, com mais de 6 anos de experiência e mais de 40 projetos digitais entregues. Crio sites, landing pages e interfaces responsivas que conectam os objetivos do negócio às necessidades de quem navega.</p>
               <p>Participo de cada etapa do projeto, do briefing à publicação: organizo a informação, desenvolvo wireframes e protótipos no Figma e implemento as interfaces com WordPress, HTML, CSS e JavaScript. Meu foco é unir clareza visual, usabilidade e conversão.</p>
               <p>Minha trajetória passa por agências, produtos educacionais premium e projetos para mais de 20 clientes como freelancer. Trabalhando junto a equipes de marketing, produto e liderança, transformo ideias e requisitos de negócio em experiências digitais consistentes.</p>
-              <p>Sou formado em Design pela UNICESUSC e estou em Florianópolis, com disponibilidade para trabalho remoto. Fora do computador, gosto de futebol, churrasco, tecnologia e de conhecer novas culturas.</p>
+              <p>Sou formado em Design pela UNICESUSC e estou em Florianópolis, SC, com disponibilidade para trabalho remoto, híbrido e presencial. Fora do computador, gosto de futebol, churrasco, tecnologia e de conhecer novas culturas.</p>
             </>
           ) : (
             <>
               <p>I’m Matheus Martendal, a Web Designer and Frontend Developer with over 6 years of experience and more than 40 digital projects delivered. I create websites, landing pages, and responsive interfaces that connect business goals with the needs of the people using them.</p>
               <p>I work across every stage of a project, from brief to launch: structuring information, developing wireframes and prototypes in Figma, and implementing interfaces with WordPress, HTML, CSS, and JavaScript. My focus is on visual clarity, usability, and conversion.</p>
               <p>My experience spans agencies, premium educational products, and freelance projects for over 20 clients. Working alongside marketing, product, and leadership teams, I turn ideas and business requirements into consistent digital experiences.</p>
-              <p>I hold a bachelor’s degree in Design from UNICESUSC and am based in Florianópolis, available for remote work. Away from the computer, I enjoy football, barbecue, technology, and discovering new cultures.</p>
+              <p>I hold a bachelor’s degree in Design from UNICESUSC and am based in Florianópolis, SC, available for remote, hybrid and on-site work. Away from the computer, I enjoy football, barbecue, technology, and discovering new cultures.</p>
             </>
           )}
         </div>
@@ -81,7 +81,7 @@ export default function About({ lang }: AboutProps) {
               <Award className="w-3.5 h-3.5" /> Behance
             </a>
             <a 
-              href="https://github.com/matheusmartendal-dev" 
+              href="https://github.com/matheusmartendal-dev/portfolio-matheusmartendal" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2 bg-white/75 dark:bg-white/[0.045] border border-[#e7dccf] dark:border-white/10 text-[#4f625d] dark:text-neutral-300 hover:border-orange-500 dark:hover:border-orange-500 rounded-xl text-xs font-mono transition-all uppercase cursor-pointer"

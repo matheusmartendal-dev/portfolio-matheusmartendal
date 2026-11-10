@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chatbot de Suporte · CS Nola</title>
+  <meta name="description" content="Demo interativa de um chatbot de suporte feito no n8n: consulta a base de conhecimento, classifica cada chamado com IA, registra tudo e avisa o time de CS quando um assunto se repete.">
+
+  <!-- Fontes: troque aqui e em css/tema.css -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tema.css">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+  <header class="topo">
+    <p class="topo__selo">Projeto · n8n + IA</p>
+    <h1 class="topo__titulo">Chatbot de suporte para restaurantes</h1>
+    <p class="topo__texto">
+      Um chatbot no início da operação: ele responde só o que está na base de conhecimento e encaminha o resto para o suporte.
+      Cada chamado é classificado pela IA e registrado, e quando uma categoria chega a 3 chamados o time de CS recebe uma dica
+      para criar material sobre o tema. Cumprimentos e conversa solta recebem resposta pronta e não viram chamado.
+    </p>
+  </header>
+
+  <main class="painel">
+
+    <!-- CHAT -->
+    <section class="cartao chat" aria-label="Chat">
+      <div class="cartao__cabecalho">
+        <span class="ponto-online" aria-hidden="true"></span>
+        <h2 class="cartao__titulo">Suporte Nola</h2>
+      </div>
+
+      <div class="mensagens" id="mensagens" aria-live="polite">
+        <div class="mensagem mensagem--bot">
+          <div class="mensagem__balao" id="boas-vindas"></div>
+        </div>
+      </div>
+
+      <div class="sugestoes" id="sugestoes">
+        <div class="sugestoes__grupo">
+          <span class="sugestoes__titulo">Opções:</span>
+          <div class="sugestoes__botoes" id="opcoes"></div>
+        </div>
+        <div class="sugestoes__grupo sugestoes__grupo--teste">
+          <span class="sugestoes__titulo">Teste também:</span>
+          <div class="sugestoes__botoes">
+            <button type="button" data-pergunta="Bom dia, tudo bem?">"Bom dia, tudo bem?"</button>
+            <button type="button" data-pergunta="Quero falar com alguém">"Quero falar com alguém"</button>
+            <button type="button" data-pergunta="Vocês têm integração com o iFood?">Pergunta fora da base</button>
+          </div>
+        </div>
+      </div>
+
+      <form class="entrada" id="form-chat" autocomplete="off">
+        <label for="campo-mensagem" class="visualmente-oculto">Sua mensagem</label>
+        <input id="campo-mensagem" class="entrada__campo" type="text" placeholder="Digite sua dúvida…" maxlength="300">
+        <button id="botao-enviar" class="entrada__botao" type="submit">Enviar</button>
+      </form>
+    </section>
+
+    <!-- FLUXO -->
+    <section class="cartao fluxo" aria-label="Fluxo no n8n">
+      <div class="cartao__cabecalho">
+        <h2 class="cartao__titulo">Fluxo no n8n</h2>
+        <span class="cartao__nota">os nós acendem conforme a mensagem passa</span>
+      </div>
+      <ol class="nos" id="lista-nos"></ol>
+      <details class="prompt">
+        <summary>Ver o prompt enviado para a IA</summary>
+        <pre id="ultimo-prompt">Envie uma mensagem para ver o prompt montado pelo nó "Monta Contexto".</pre>
+      </details>
+    </section>
+
+    <!-- CHAMADOS -->
+    <section class="cartao chamados" aria-label="Chamados registrados">
+      <div class="cartao__cabecalho">
+        <h2 class="cartao__titulo">Planilha · aba Chamados</h2>
+        <button type="button" class="botao-texto" id="limpar-chamados">Limpar</button>
+      </div>
+      <div class="contadores" id="contadores"></div>
+      <p class="chamados__vazio" id="chamados-vazio">Nenhum chamado ainda. Mande uma pergunta no chat.</p>
+      <div class="tabela-rolagem">
+        <table class="tabela">
+          <thead>
+            <tr><th>Data</th><th>Pergunta</th><th>Resposta</th><th>Categoria</th><th>Status</th></tr>
+          </thead>
+          <tbody id="tabela-chamados"></tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    Demo com respostas simuladas a partir da base de conhecimento. Na versão real, as respostas vêm da IA (Groq · Llama 3.3) e os chamados vão para o Google Sheets.
+  </footer>
+
+  <script src="js/base-de-conhecimento.js"></script>
+  <script src="js/fluxo.js"></script>
+</body>
+</html>

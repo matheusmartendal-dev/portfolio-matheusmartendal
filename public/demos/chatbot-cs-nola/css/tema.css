@@ -1,0 +1,52 @@
+/*
+  TEMA — o visual inteiro sai daqui.
+  Mude fontes, cores, cantos e espaços nestas variáveis e a página toda acompanha.
+  (Se trocar a fonte, troque também o link do Google Fonts no index.html.)
+*/
+
+:root {
+  /* Fontes */
+  --fonte-texto: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fonte-titulo: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --fonte-codigo: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  /* Tamanhos de texto */
+  --texto-pequeno: 0.78rem;
+  --texto-normal: 0.95rem;
+  --texto-titulo-cartao: 1.05rem;
+  --texto-titulo-pagina: clamp(1.8rem, 4vw, 2.6rem);
+
+  /* Cores de base */
+  --cor-fundo: #f4f2ee;
+  --cor-cartao: #ffffff;
+  --cor-texto: #1d1d1f;
+  --cor-texto-suave: #6b6a68;
+  --cor-borda: #e4e1db;
+
+  /* Cor principal (botões, nó ativo, balão do cliente) */
+  --cor-destaque: #ff6d4d;
+  --cor-destaque-texto: #ffffff;
+  --cor-destaque-suave: #ffe9e3;
+
+  /* Balões do chat */
+  --cor-balao-bot: #f1efea;
+  --cor-balao-cliente: var(--cor-destaque);
+
+  /* Status e categorias */
+  --cor-ok: #1f8a5b;
+  --cor-ok-suave: #e3f4ec;
+  --cor-encaminhado: #b4590f;
+  --cor-encaminhado-suave: #fdf0e1;
+  --cor-pedidos: #3b6fd8;
+  --cor-financeiro: #1f8a5b;
+  --cor-cadastro: #8a4fd1;
+  --cor-suporte: #b4590f;
+
+  /* Formas e espaços */
+  --raio-cartao: 18px;
+  --raio-balao: 16px;
+  --raio-botao: 999px;
+  --espaco: 1rem;
+  --sombra-cartao: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.05);
+  --largura-maxima: 1240px;
+}
