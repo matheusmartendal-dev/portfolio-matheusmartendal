@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
-import { Sparkles, MapPin, Target, Wallet, Heart, Code2, Globe, Command, ArrowDown, ChevronRight, Share2, Smartphone, Sun, Moon } from 'lucide-react';
+import { ArrowUpRight, Sparkles, MapPin, Target, Wallet, Heart, Code2, Globe, Command, ArrowDown, ChevronRight, Share2, Smartphone, Sun, Moon } from 'lucide-react';
 import Header from './components/Header';
 import About from './components/About';
 import PortfolioHub from './components/PortfolioHub';
@@ -16,10 +16,11 @@ function getRouteFromHash(): Route {
 }
 
 export default function App() {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(() => !/theme-(harvey|mistral)/.test(document.documentElement.className));
   const [lang, setLang] = useState<'pt' | 'en'>('pt');
   const [currentTime, setCurrentTime] = useState('');
   const whatsappIcon = new URL('./assets/whatsapp-icon.svg', import.meta.url).href;
+  const heroArt = `${import.meta.env.BASE_URL}hero/hero-wave-${document.documentElement.className.match(/theme-(harvey|mistral)/)?.[1] ?? 'original'}.jpg`;
 
   useEffect(() => {
     if (darkMode) {
@@ -121,27 +122,36 @@ export default function App() {
           )}
 
           {route === '/' && (<>
-          {/* HERO GRID BLOCK (Brand Direction Studio premium layout reference) */}
-          <section className="hero-grid-surface relative overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-12 min-h-[calc(100svh-128px)] md:min-h-[640px] pt-10 md:pt-12 pb-12 md:pb-14 px-5 md:px-8 lg:px-10 rounded-[30px] md:rounded-[38px] border border-white/20 dark:border-white/10 items-center lg:items-stretch text-white shadow-2xl">
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/8 to-black/75 pointer-events-none" />
-            
-            {/* Left Portion: Welcome Message, Navigation Trigger, and Giant Bold Typography signature */}
-            <div className="relative z-10 hidden lg:flex lg:col-span-8 flex-col justify-between text-left space-y-12 order-2 lg:order-1">
-              
-              {/* Context and Narrative Tagline */}
-              <div className="space-y-2">
-                <span className="text-[11px] tracking-widest uppercase font-mono font-bold text-[#4f625d] dark:text-white/70 block leading-none">
-                  Florianópolis, SC<span className="hidden sm:inline"> · </span>
-                  <span className="block sm:inline mt-1.5 sm:mt-0">{isPt ? 'Disponível para remoto, híbrido e presencial' : 'Available for remote, hybrid & on-site'}</span>
-                </span>
-              </div>
+          {/* HERO — arte em onda no topo, apresentação embaixo (foto fica no "Sobre mim") */}
+          <section className="hero-wave relative overflow-hidden w-screen max-w-none ml-[calc(50%-50vw)] text-white text-left">
+            <div className="relative h-[42svh] min-h-[260px] sm:h-[46svh] lg:h-[52svh] max-h-[640px] overflow-hidden">
+              <img
+                src={heroArt}
+                alt=""
+                aria-hidden="true"
+                width="2400"
+                height="1100"
+                className="hero-wave-art absolute inset-0 w-full h-full object-cover"
+                fetchPriority="high"
+                decoding="async"
+              />
+              <div className="hero-wave-fade absolute inset-x-0 bottom-0 h-1/3 pointer-events-none" />
+            </div>
 
-              {/* Elegant Golden Suisse® styled main title section */}
-              <div className="pt-0 md:pt-2 space-y-2">
-                <h1 className="text-[2.35rem] sm:text-5xl lg:text-6xl xl:text-7xl tracking-tight leading-[1.02] font-display font-normal text-white">
-                  Matheus Martendal<span className="font-light text-white/45 text-xl sm:text-2xl lg:text-3xl align-super ml-1">™</span>
+            <div className="relative mx-auto max-w-[1240px] grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 px-5 sm:px-8 md:px-10 lg:px-12 pt-8 md:pt-12 pb-12 md:pb-16">
+              <div className="lg:col-span-9 space-y-6 md:space-y-8">
+                <div className="space-y-1.5">
+                  <p className="font-display italic text-xl md:text-2xl text-white/85 leading-none">Florianópolis, SC</p>
+                  <p className="text-sm md:text-[15px] text-white/55">
+                    {isPt ? 'Disponível para remoto, híbrido e presencial' : 'Available for remote, hybrid & on-site'}
+                  </p>
+                </div>
+
+                <h1 className="font-display font-light text-[3.1rem] sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[0.98] text-white">
+                  Matheus Martendal
                 </h1>
-                <h1 className="text-[1.45rem] sm:text-2xl lg:text-3xl xl:text-4xl tracking-tight leading-[1.14] font-display font-light text-white/95 max-w-4xl">
+
+                <p className="text-xl sm:text-2xl lg:text-[1.9rem] font-light leading-snug text-white/85 max-w-4xl">
                   {/* Barra antes de cada cargo; a da 1ª posição de cada linha fica escondida pela margem negativa + overflow */}
                   <span className="block overflow-hidden">
                     <span className="flex flex-wrap -ml-[1.1em]">
@@ -152,81 +162,25 @@ export default function App() {
                       ))}
                     </span>
                   </span>
-                </h1>
+                </p>
               </div>
 
-              {/* See Selected Projects Block */}
-              <div className="flex flex-wrap items-center gap-4 pt-1 pb-1 md:gap-6 md:pt-2 md:pb-6">
-                <button 
+              <div className="lg:col-span-3 flex flex-wrap lg:flex-col items-start lg:items-end lg:justify-end gap-3">
+                <button
                   onClick={handleScrollToProjects}
-                  className="py-3 px-6 bg-orange-500 hover:bg-teal-300 text-white hover:text-[#102321] rounded-full text-xs font-sans font-medium transition-all shadow-lg shadow-black/25 flex items-center gap-1 border border-white/15 cursor-pointer hover:scale-105 active:scale-98 duration-200"
+                  className="group inline-flex items-center gap-2 py-3 px-5 rounded-full bg-white text-[#0b1311] hover:bg-teal-300 text-sm font-medium transition-colors cursor-pointer"
                 >
-                  <span className="font-medium text-[13px] mr-0.5">+</span> {isPt ? 'Ver projetos' : 'See projects'}
+                  {isPt ? 'Ver projetos' : 'See projects'}
+                  <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </button>
                 <a
                   href="https://wa.me/5548988025100"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group py-3 px-6 bg-white/10 hover:bg-teal-300 text-white hover:text-[#102321] rounded-full text-xs font-sans font-medium transition-all shadow-lg shadow-black/25 flex items-center gap-2 border border-white/15 cursor-pointer hover:scale-105 active:scale-98 duration-200 backdrop-blur"
+                  className="group inline-flex items-center gap-2 py-3 px-5 rounded-full border border-white/25 text-white hover:bg-white hover:text-[#0b1311] text-sm font-medium transition-colors"
                 >
                   <img src={whatsappIcon} alt="" className="w-4 h-4 invert group-hover:invert-0" aria-hidden="true" /> WhatsApp
                 </a>
-              </div>
-
-            </div>
-
-            {/* Portrait and mobile introduction */}
-            <div className="relative z-10 lg:col-span-4 flex flex-col justify-center items-start lg:items-stretch order-1 lg:order-2">
-              <div className="hidden lg:block relative w-full max-w-[245px] sm:max-w-none lg:max-w-none mx-0 lg:mx-0 h-[330px] sm:h-auto sm:aspect-[4/5] lg:aspect-[3/4] rounded-[30px] md:rounded-[38px] overflow-hidden border border-white/15 shadow-2xl group bg-black/50 transition-all duration-500 hover:border-orange-500/60">
-                <img
-                  src="https://i.imgur.com/nl92NXC.png"
-                  alt={isPt ? 'Retrato de Matheus Martendal' : 'Portrait of Matheus Martendal'}
-                  width="896"
-                  height="1195"
-                  className="w-full h-full object-cover object-top grayscale brightness-80 group-hover:brightness-105 group-hover:grayscale-0 transition-all duration-700 hover:scale-103"
-                  fetchPriority="high"
-                  decoding="async"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#102321]/60 via-transparent to-white/10 pointer-events-none" />
-              </div>
-
-              <div className="block lg:hidden text-left max-w-[360px]">
-                <span className="text-[11px] tracking-widest uppercase font-mono font-bold text-[#4f625d] dark:text-white/70 block mb-5">
-                  Florianópolis, SC<span className="hidden sm:inline"> · </span>
-                  <span className="block sm:inline mt-1.5 sm:mt-0">{isPt ? 'Disponível para remoto, híbrido e presencial' : 'Available for remote, hybrid & on-site'}</span>
-                </span>
-                <h1 className="text-[3.55rem] tracking-tight leading-[1.02] font-display font-normal text-white">
-                  Matheus Martendal
-                </h1>
-                <h2 className="text-[1.45rem] sm:text-[1.65rem] tracking-tight leading-[1.14] font-display font-light text-white/95 mt-4">
-                  {/* Barra antes de cada cargo; a da 1ª posição de cada linha fica escondida pela margem negativa + overflow */}
-                  <span className="block overflow-hidden">
-                    <span className="flex flex-wrap -ml-[1.1em]">
-                      {['AI Product Designer', 'AI Builder', 'Web & UI Design', 'AI Automation & Solutions', 'Digital Products'].map((role) => (
-                        <span key={role} className="whitespace-nowrap before:content-['|'] before:inline-block before:w-[1.1em] before:text-center before:text-white/35 before:font-light">
-                          {role}
-                        </span>
-                      ))}
-                    </span>
-                  </span>
-                </h2>
-                <div className="mt-8 flex flex-wrap items-center gap-3">
-                  <button
-                    onClick={handleScrollToProjects}
-                    className="py-3 px-6 bg-orange-500 hover:bg-teal-300 text-white hover:text-[#102321] rounded-full text-xs font-sans font-medium transition-all shadow-lg shadow-black/25 inline-flex items-center gap-1 border border-white/15 cursor-pointer active:scale-98 duration-200"
-                  >
-                    <span className="font-medium text-[13px] mr-0.5">+</span> {isPt ? 'Ver projetos' : 'See projects'}
-                  </button>
-                  <a
-                    href="https://wa.me/5548988025100"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group py-3 px-6 bg-white/10 hover:bg-teal-300 text-white hover:text-[#102321] rounded-full text-xs font-sans font-medium transition-all shadow-lg shadow-black/25 inline-flex items-center gap-2 border border-white/15 cursor-pointer active:scale-98 duration-200 backdrop-blur"
-                  >
-                    <img src={whatsappIcon} alt="" className="w-4 h-4 invert group-hover:invert-0" aria-hidden="true" /> WhatsApp
-                  </a>
-                </div>
               </div>
             </div>
           </section>
@@ -383,7 +337,7 @@ export default function App() {
       {/* FIXED FLOATING DARK MODE TOGGLE (Acccompanies visitor on the entire page in the bottom-right corner) */}
       <button
         onClick={() => setDarkMode(!darkMode)}
-        className={`fixed bottom-6 right-6 z-50 rounded-full border shadow-2xl flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 active:scale-95 hover:shadow-orange-500/20
+        className={`theme-toggle fixed bottom-6 right-6 z-50 rounded-full border shadow-2xl flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 active:scale-95 hover:shadow-orange-500/20
           ${darkMode 
             ? 'h-14 w-14 md:h-16 md:w-16 bg-orange-500 border-orange-500/20 text-white' 
             : 'h-14 w-14 md:h-16 md:w-16 bg-[#1a1a1e] border-neutral-700/80'

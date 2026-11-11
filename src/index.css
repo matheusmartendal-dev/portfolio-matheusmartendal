@@ -220,3 +220,7 @@ html.dark .premium-card {
     filter: brightness(0) saturate(100%) invert(62%) sepia(12%) saturate(670%) hue-rotate(124deg) brightness(92%) contrast(88%);
   }
 }
+
+/* Hero com arte em onda */
+.hero-wave { background: #07100e; }
+.hero-wave-fade { background: linear-gradient(to bottom, transparent, #07100e); }

@@ -1,0 +1,192 @@
+/*
+  TEMA — Mistral design system (padrão do site)
+  Outros temas pela URL: ?tema=harvey  ·  ?tema=original
+
+  Tokens (Design.md):
+    color-4 #F1F1F3 Background · color-5 #F9F9FB Background (cartões)
+    color-3 #B9DAFF Surface    · color-1 #1A1A1E Text Primary
+    color-2 #FF5229 Accent     · color-6 #FFFFFF Text Light
+    radius 6px · pesos 400 / 500 · sem sombras · sentence case
+  Fontes: Inter (texto e títulos) + Times (itálico de destaque). ALTMistral é proprietária.
+  Contraste: texto branco sobre #FF5229 não atinge AA → botões são pretos e ganham o laranja no hover.
+*/
+
+html.theme-mistral {
+  --m-bg: #F1F1F3;
+  --m-bg-2: #F9F9FB;
+  --m-surface: #B9DAFF;
+  --m-text: #1A1A1E;
+  --m-text-2: rgb(26 26 30 / 0.68);   /* texto secundário: color-1 com opacidade (AA sobre os fundos) */
+  --m-border: rgb(26 26 30 / 0.12);   /* bordas: color-1 com opacidade */
+  --m-accent: #FF5229;
+  --m-white: #FFFFFF;
+  --m-radius: 6px;
+  --m-ease: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Paleta do Tailwind remapeada para os tokens */
+  --color-orange-50: var(--m-bg-2);
+  --color-orange-100: var(--m-bg);
+  --color-orange-200: var(--m-border);
+  --color-orange-300: var(--m-border);
+  --color-orange-400: var(--m-accent);
+  --color-orange-500: var(--m-accent);
+  --color-orange-600: var(--m-text);
+  --color-orange-700: var(--m-text);
+  --color-orange-900: var(--m-text);
+  --color-orange-950: var(--m-text);
+  --color-teal-50: var(--m-bg-2);
+  --color-teal-100: var(--m-surface);
+  --color-teal-200: var(--m-surface);
+  --color-teal-300: var(--m-accent);   /* hover dos botões → laranja */
+  --color-teal-400: var(--m-text);
+  --color-teal-500: var(--m-text);     /* numeração e rótulos */
+  --color-teal-600: var(--m-text);
+  --color-teal-700: var(--m-text);
+  --color-teal-800: var(--m-text);
+  --color-teal-900: var(--m-text);
+  --color-teal-950: var(--m-text);
+  --color-neutral-50: var(--m-bg-2);
+  --color-neutral-100: var(--m-bg);
+  --color-neutral-200: var(--m-border);
+  --color-neutral-300: var(--m-border);
+  --color-neutral-400: var(--m-text-2);
+  --color-neutral-500: var(--m-text-2);
+  --color-neutral-600: var(--m-text-2);
+  --color-neutral-700: var(--m-text);
+  --color-neutral-800: var(--m-text);
+  --color-neutral-900: var(--m-text);
+  --color-neutral-950: var(--m-text);
+  --color-white: var(--m-white);
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-copy: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-weight-light: 400;
+  --font-weight-semibold: 500;
+  --font-weight-bold: 500;
+  --font-weight-extrabold: 500;
+
+  --radius-sm: var(--m-radius);
+  --radius-md: var(--m-radius);
+  --radius-lg: var(--m-radius);
+  --radius-xl: var(--m-radius);
+  --radius-2xl: var(--m-radius);
+  --radius-3xl: var(--m-radius);
+
+  background: var(--m-bg) !important;
+  color: var(--m-text);
+}
+
+/* ---------- Fundo e moldura ---------- */
+html.theme-mistral body,
+html.theme-mistral #root > div { background: var(--m-bg) !important; }
+html.theme-mistral #root > div > .premium-card {
+  background: var(--m-bg) !important;
+  color: var(--m-text) !important;
+  border-color: transparent !important;
+  backdrop-filter: none !important;
+}
+html.theme-mistral *,
+html.theme-mistral .premium-card { box-shadow: none !important; text-shadow: none !important; }
+html.theme-mistral .backdrop-blur,
+html.theme-mistral .backdrop-blur-md,
+html.theme-mistral .backdrop-blur-xl { backdrop-filter: none !important; }
+
+/* Cartões: fundo claro (color-5) + borda fina */
+html.theme-mistral .premium-card:not(#root > div > .premium-card) {
+  background-color: var(--m-bg-2) !important;
+  border-color: var(--m-border) !important;
+}
+
+/* ---------- Cores fixas usadas no portfólio ---------- */
+html.theme-mistral .border-\[\#e7dccf\],
+html.theme-mistral .border-\[\#e6d8c9\],
+html.theme-mistral .border-\[\#d9c7b4\] { border-color: var(--m-border) !important; }
+html.theme-mistral .text-\[\#102321\] { color: var(--m-text) !important; }
+html.theme-mistral .text-\[\#374741\],
+html.theme-mistral .text-\[\#4f625d\] { color: var(--m-text-2) !important; }
+/* Blocos de ícone e numeração → azul de superfície */
+html.theme-mistral .bg-\[\#f4eadc\],
+html.theme-mistral .bg-\[\#f4eadc\]\/70 { background-color: var(--m-surface) !important; }
+html.theme-mistral .bg-\[\#102321\],
+html.theme-mistral .bg-\[\#102321\]\/80,
+html.theme-mistral .bg-\[\#102321\]\/95 { background-color: var(--m-text) !important; }
+html.theme-mistral .bg-\[\#ead5c1\] { background-color: var(--m-surface) !important; }
+html.theme-mistral .copy-text,
+html.theme-mistral .micro-copy { color: var(--m-text-2); }
+
+/* ---------- Botões e pílulas ---------- */
+/* Fundo laranja sempre com texto escuro (AA) */
+html.theme-mistral .bg-orange-500 { color: var(--m-text) !important; }
+/* Botões/links primários: preto → laranja no hover */
+html.theme-mistral :is(a, button).bg-orange-500 {
+  background-color: var(--m-text) !important;
+  color: var(--m-white) !important;
+}
+html.theme-mistral :is(a, button).bg-orange-500:hover {
+  background-color: var(--m-accent) !important;
+  color: var(--m-text) !important;
+}
+html.theme-mistral :is(a, button).bg-orange-500 img { filter: invert(1); }
+html.theme-mistral :is(a, button).bg-orange-500:hover img { filter: none; }
+html.theme-mistral .hover\:text-\[\#102321\]:hover { color: var(--m-text) !important; }
+
+/* ---------- Hero e cabeçalhos de página: bloco grafite ---------- */
+html.theme-mistral .hero-wave { background: var(--m-text) !important; }
+html.theme-mistral .hero-wave-fade { background: linear-gradient(to bottom, transparent, var(--m-text)) !important; }
+html.theme-mistral .hero-wave .bg-white { background-color: var(--m-white) !important; color: var(--m-text) !important; }
+html.theme-mistral .hero-wave .bg-white:hover,
+html.theme-mistral .hero-wave .hover\:bg-white:hover { background-color: var(--m-accent) !important; color: var(--m-text) !important; border-color: var(--m-accent) !important; }
+html.theme-mistral .hero-wave h1 { font-weight: 400; letter-spacing: -0.035em; }
+html.theme-mistral .hero-grid-surface::after,
+html.theme-mistral .footer-grid-surface::after { background: var(--m-text) !important; }
+html.theme-mistral .hero-grid-surface::before,
+html.theme-mistral .footer-grid-surface::before {
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.05) 1px, transparent 1px) !important;
+}
+html.theme-mistral .hero-grid-surface > .bg-gradient-to-b,
+html.theme-mistral .footer-grid-surface > .bg-gradient-to-t { display: none; }
+html.theme-mistral .hero-grid-surface,
+html.theme-mistral .footer-grid-surface { border-color: var(--m-text) !important; }
+html.theme-mistral .hero-grid-surface .bg-orange-500 { color: var(--m-text) !important; }
+
+/* ---------- Tipografia ---------- */
+html.theme-mistral :is(h1, h2, h3) {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+/* Itálico de destaque em Times (3ª fonte do sistema) */
+html.theme-mistral .font-display.italic { font-family: Times, "Times New Roman", serif; letter-spacing: 0; }
+html.theme-mistral .uppercase { text-transform: none !important; }
+html.theme-mistral .tracking-widest,
+html.theme-mistral .tracking-wider,
+html.theme-mistral .tracking-wide { letter-spacing: 0 !important; }
+
+/* ---------- Formas: tudo em 6px (bolinhas pequenas continuam redondas) ---------- */
+html.theme-mistral [class*="rounded-["] { border-radius: var(--m-radius) !important; }
+html.theme-mistral .rounded-full:not([class*="h-1"]):not([class*="h-2"]):not([class*="h-3 "]):not([class*="w-1"]):not([class*="w-2"]) {
+  border-radius: var(--m-radius) !important;
+}
+
+/* ---------- Estados ---------- */
+html.theme-mistral a,
+html.theme-mistral button {
+  transition: color 0.15s var(--m-ease), background-color 0.15s var(--m-ease), border-color 0.15s var(--m-ease), transform 0.3s var(--m-ease);
+}
+html.theme-mistral :is(a, button, input, iframe, video):focus-visible {
+  outline: 2px solid var(--m-accent);
+  outline-offset: 2px;
+}
+html.theme-mistral :is(button, a)[disabled],
+html.theme-mistral button:disabled { opacity: 0.4; cursor: not-allowed; }
+html.theme-mistral [class*="hover:scale-"]:hover,
+html.theme-mistral [class*="group-hover:scale-"] { transform: none !important; }
+html.theme-mistral ::selection { background: var(--m-surface); color: var(--m-text); }
+
+/* Só tema claro */
+html.theme-mistral .theme-toggle { display: none !important; }
+html.theme-mistral .language-flag::after { background: rgb(26 26 30 / 0.25); }

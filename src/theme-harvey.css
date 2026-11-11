@@ -1,0 +1,206 @@
+/*
+  TEMA — Harvey design system (ativo no site inteiro)
+  Para ver o visual antigo: http://localhost:3000/?tema=original
+  Para remover de vez: apague este arquivo e as linhas do tema em src/main.tsx.
+
+  Tokens (Design.md):
+    color-5 #F2F1F0 Background   · color-4 #F6F202 Surface (destaque)
+    color-1 #0F0E0D Text Primary · color-2 #706D66 Text Secondary
+    color-3 #E5E5E3 Border       · color-6 #FAFAF9 Text Light
+    radius 3 / 4 / 8px · pesos 400 / 500 · sem sombras · sentence case
+  Fontes: HarveySans/HarveySerif são proprietárias; substituídas por Inter + Source Serif 4.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap');
+
+html.theme-harvey {
+  --h-bg: #F2F1F0;
+  --h-surface: #F6F202;
+  --h-text: #0F0E0D;
+  --h-text-2: #706D66;
+  --h-border: #E5E5E3;
+  --h-light: #FAFAF9;
+  --h-radius-sm: 3px;
+  --h-radius-md: 4px;
+  --h-radius-lg: 8px;
+  --h-ease: cubic-bezier(0.3, 0.3, 0.3, 1);
+
+  /* Paleta do Tailwind remapeada para os tokens */
+  --color-orange-500: var(--h-text);   /* botões primários, linhas de destaque */
+  --color-orange-400: var(--h-text);
+  --color-teal-300: var(--h-surface);  /* hover dos botões → amarelo Harvey */
+  --color-teal-400: var(--h-text-2);
+  --color-teal-500: var(--h-text-2);   /* numeração e rótulos */
+  --color-teal-600: var(--h-text-2);
+  --color-white: var(--h-light);
+
+  /* Escalas completas → tokens (selos, cartões de métricas, molduras dos mockups) */
+  --color-orange-50: var(--h-light);
+  --color-orange-100: var(--h-bg);
+  --color-orange-200: var(--h-border);
+  --color-orange-300: var(--h-border);
+  --color-orange-600: var(--h-text);
+  --color-orange-700: var(--h-text);
+  --color-orange-900: var(--h-text);
+  --color-orange-950: var(--h-text);
+  --color-teal-50: var(--h-light);
+  --color-teal-100: var(--h-bg);
+  --color-teal-200: var(--h-border);
+  --color-teal-700: var(--h-text-2);
+  --color-teal-800: var(--h-text);
+  --color-teal-900: var(--h-text);
+  --color-teal-950: var(--h-text);
+  --color-neutral-50: var(--h-light);
+  --color-neutral-100: var(--h-bg);
+  --color-neutral-200: var(--h-border);
+  --color-neutral-300: var(--h-border);
+  --color-neutral-400: var(--h-text-2);
+  --color-neutral-500: var(--h-text-2);
+  --color-neutral-600: var(--h-text-2);
+  --color-neutral-700: var(--h-text);
+  --color-neutral-800: var(--h-text);
+  --color-neutral-900: var(--h-text);
+  --color-neutral-950: var(--h-text);
+
+  /* Tipografia: sans para texto/rótulos, serif para títulos */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-copy: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Source Serif 4", Georgia, serif;
+  --font-weight-semibold: 500;
+  --font-weight-bold: 500;
+  --font-weight-extrabold: 500;
+
+  /* Raios fixos em 3 / 4 / 8px */
+  --radius-sm: var(--h-radius-sm);
+  --radius-md: var(--h-radius-md);
+  --radius-lg: var(--h-radius-lg);
+  --radius-xl: var(--h-radius-lg);
+  --radius-2xl: var(--h-radius-lg);
+  --radius-3xl: var(--h-radius-lg);
+
+  background: var(--h-bg) !important;
+  color: var(--h-text);
+}
+
+/* ---------- Fundo e moldura ---------- */
+html.theme-harvey body,
+html.theme-harvey #root > div {
+  background: var(--h-bg) !important;
+}
+html.theme-harvey #root > div > .premium-card {
+  background: var(--h-bg) !important;
+  color: var(--h-text) !important;
+  border-color: transparent !important;
+  backdrop-filter: none !important;
+}
+
+/* Sem sombras decorativas */
+html.theme-harvey *,
+html.theme-harvey .premium-card {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+html.theme-harvey .backdrop-blur,
+html.theme-harvey .backdrop-blur-md,
+html.theme-harvey .backdrop-blur-xl {
+  backdrop-filter: none !important;
+}
+
+/* ---------- Cores fixas (arbitrárias) usadas no portfólio ---------- */
+html.theme-harvey .border-\[\#e7dccf\],
+html.theme-harvey .border-\[\#e6d8c9\],
+html.theme-harvey .border-\[\#d9c7b4\] { border-color: var(--h-border) !important; }
+html.theme-harvey .text-\[\#102321\] { color: var(--h-text) !important; }
+html.theme-harvey .text-\[\#374741\],
+html.theme-harvey .text-\[\#4f625d\] { color: var(--h-text-2) !important; }
+html.theme-harvey .bg-\[\#f4eadc\],
+html.theme-harvey .bg-\[\#f4eadc\]\/70 { background-color: var(--h-bg) !important; }
+html.theme-harvey .bg-\[\#102321\],
+html.theme-harvey .bg-\[\#102321\]\/80,
+html.theme-harvey .bg-\[\#102321\]\/95 { background-color: var(--h-text) !important; }
+html.theme-harvey .copy-text,
+html.theme-harvey .micro-copy { color: var(--h-text-2); }
+
+/* Cartões: superfície clara + borda fina */
+html.theme-harvey .premium-card:not(#root > div > .premium-card) {
+  background-color: var(--h-light) !important;
+  border-color: var(--h-border) !important;
+}
+
+/* ---------- Hero, cabeçalhos de página e rodapé: bloco escuro, sem gradiente ---------- */
+html.theme-harvey .hero-grid-surface::after,
+html.theme-harvey .footer-grid-surface::after {
+  background: var(--h-text) !important;
+}
+html.theme-harvey .hero-grid-surface::before,
+html.theme-harvey .footer-grid-surface::before {
+  background-image:
+    linear-gradient(rgba(250, 250, 249, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(250, 250, 249, 0.06) 1px, transparent 1px) !important;
+}
+html.theme-harvey .hero-grid-surface > .bg-gradient-to-b,
+html.theme-harvey .footer-grid-surface > .bg-gradient-to-t { display: none; }
+html.theme-harvey .hero-grid-surface,
+html.theme-harvey .footer-grid-surface { border-color: var(--h-text) !important; }
+/* Botão primário sobre fundo escuro → amarelo */
+html.theme-harvey .hero-grid-surface .bg-orange-500 {
+  background-color: var(--h-surface) !important;
+  color: var(--h-text) !important;
+}
+html.theme-harvey .hero-grid-surface .bg-orange-500:hover { background-color: var(--h-light) !important; }
+html.theme-harvey .hero-grid-surface .bg-orange-500 img { filter: none; }
+
+/* ---------- Tipografia ---------- */
+html.theme-harvey :is(h1, h2, h3) {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+/* Sentence case: sem caixa alta e sem espaçamento largo nos rótulos */
+html.theme-harvey .uppercase { text-transform: none !important; }
+html.theme-harvey .tracking-widest,
+html.theme-harvey .tracking-wider,
+html.theme-harvey .tracking-wide { letter-spacing: 0 !important; }
+
+/* ---------- Formas ---------- */
+html.theme-harvey [class*="rounded-["] { border-radius: var(--h-radius-lg) !important; }
+/* Pílulas e botões → 4px (bolinhas pequenas continuam redondas) */
+html.theme-harvey .rounded-full:not([class*="h-1"]):not([class*="h-2"]):not([class*="h-3 "]):not([class*="w-1"]):not([class*="w-2"]) {
+  border-radius: var(--h-radius-md) !important;
+}
+
+/* ---------- Estados ---------- */
+html.theme-harvey a,
+html.theme-harvey button {
+  transition: color 0.3s var(--h-ease), background-color 0.3s var(--h-ease), border-color 0.3s var(--h-ease), transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+html.theme-harvey :is(a, button, input, iframe, video):focus-visible {
+  outline: 2px solid var(--h-text);
+  outline-offset: 2px;
+}
+html.theme-harvey .hero-grid-surface :is(a, button):focus-visible { outline-color: var(--h-surface); }
+html.theme-harvey :is(button, a)[disabled],
+html.theme-harvey button:disabled { opacity: 0.4; cursor: not-allowed; }
+/* Sem "pulo" de escala nos botões */
+html.theme-harvey [class*="hover:scale-"]:hover,
+html.theme-harvey [class*="group-hover:scale-"] { transform: none !important; }
+
+/* Seleção de texto */
+html.theme-harvey ::selection { background: var(--h-surface); color: var(--h-text); }
+
+/* Tema claro apenas: esconde o botão de modo escuro */
+html.theme-harvey .theme-toggle { display: none !important; }
+
+/* Bandeiras de idioma: tira o escurecimento */
+html.theme-harvey .language-flag::after { background: rgba(15, 14, 13, 0.25); }
+
+/* Fundo da foto no "Sobre mim" → token de borda */
+html.theme-harvey .bg-\[\#ead5c1\] { background-color: var(--h-border) !important; }
+
+/* Hero com arte em onda */
+html.theme-harvey .hero-wave { background: var(--h-text) !important; }
+html.theme-harvey .hero-wave-fade { background: linear-gradient(to bottom, transparent, var(--h-text)) !important; }
+html.theme-harvey .hero-wave .bg-white { background-color: var(--h-light) !important; color: var(--h-text) !important; }
+html.theme-harvey .hero-wave .bg-white:hover,
+html.theme-harvey .hero-wave .hover\:bg-white:hover { background-color: var(--h-surface) !important; color: var(--h-text) !important; }
+html.theme-harvey .hero-wave .font-light { font-weight: 400; }
