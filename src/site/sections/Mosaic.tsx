@@ -17,7 +17,7 @@ function rand(seed: number) {
 export interface LoopShot { src: string; project: string }
 
 export default function Mosaic({ image, shots }: { image: string; shots: LoopShot[] }) {
-  const [ref, raw] = useScrollProgress<HTMLDivElement>();
+  const [ref, raw] = useScrollProgress<HTMLDivElement>(1);
   const [narrow, setNarrow] = useState(() => window.matchMedia('(max-width: 767px)').matches);
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 767px)');
@@ -47,8 +47,8 @@ export default function Mosaic({ image, shots }: { image: string; shots: LoopSho
 
   // Loop rápido das fotos dos projetos depois que a imagem termina de montar
   const [frame, setFrame] = useState(0);
-  const looping = p > 0.7;
-  const preload = raw > 0.15;
+  const looping = p > 0.62;
+  const preload = raw > 0.05;
   useEffect(() => {
     if (!looping || shots.length < 2) return;
     const ms = prefersReducedMotion() ? 1400 : 170;
@@ -57,14 +57,14 @@ export default function Mosaic({ image, shots }: { image: string; shots: LoopSho
   }, [looping, shots.length]);
 
   // fases: 0–0.65 montagem · 0.55–0.85 cresce · 0.75–1 wordmark
-  const assemble = Math.min(1, p / 0.65);
-  const grow = Math.min(1, Math.max(0, (p - 0.5) / 0.35));
-  const reveal = Math.min(1, Math.max(0, (p - 0.72) / 0.2));
+  const assemble = Math.min(1, p / 0.5);
+  const grow = Math.min(1, Math.max(0, (p - 0.42) / 0.3));
+  const reveal = Math.min(1, Math.max(0, (p - 0.62) / 0.16));
   const width = narrow ? 80 + grow * 20 : 58 + grow * 32; // vw
   const ease = (x: number) => 1 - Math.pow(1 - x, 3);
 
   return (
-    <section ref={ref} className="relative h-[200vh] md:h-[280vh]" aria-label="Arte">
+    <section ref={ref} className="relative h-[150vh] md:h-[190vh]" aria-label="Arte">
       <div className="sticky top-0 h-[100svh] flex items-center justify-center overflow-hidden">
         <div
           className="relative"

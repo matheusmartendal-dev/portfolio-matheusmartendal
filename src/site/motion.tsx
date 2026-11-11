@@ -22,7 +22,7 @@ export function useInView<T extends HTMLElement>(threshold = 0.2) {
 }
 
 /** Progresso 0→1 enquanto o elemento atravessa a viewport (para seções sticky). */
-export function useScrollProgress<T extends HTMLElement>() {
+export function useScrollProgress<T extends HTMLElement>(startOffsetVh = 0) {
   const ref = useRef<T>(null);
   const [p, setP] = useState(0);
   useEffect(() => {
@@ -32,8 +32,10 @@ export function useScrollProgress<T extends HTMLElement>() {
       const el = ref.current;
       if (!el) return;
       const r = el.getBoundingClientRect();
-      const total = r.height - window.innerHeight;
-      const v = total > 0 ? -r.top / total : 0;
+      // startOffsetVh = 1 → o progresso começa quando o topo da seção entra pela base da tela
+      const off = window.innerHeight * startOffsetVh;
+      const total = r.height - window.innerHeight + off;
+      const v = total > 0 ? (off - r.top) / total : 0;
       setP(Math.min(1, Math.max(0, v)));
     };
     const onScroll = () => { if (!raf) raf = requestAnimationFrame(update); };
@@ -45,7 +47,7 @@ export function useScrollProgress<T extends HTMLElement>() {
       window.removeEventListener('resize', onScroll);
       cancelAnimationFrame(raf);
     };
-  }, []);
+  }, [startOffsetVh]);
   return [ref, p] as const;
 }
 
