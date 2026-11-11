@@ -28,7 +28,7 @@ export default function Hero({ c }: { c: Content }) {
 
           {/* Texto mono à direita */}
           <div className="md:col-span-4 md:col-start-9 space-y-6">
-            <Lines lines={h.intro} className="f-mono text-[13px] md:text-[1.1vw] leading-[1.5] text-[var(--c-mist)]" />
+            <Lines lines={h.intro} className="f-mono text-[6.4vw] md:text-[1.1vw] leading-[1.3] md:leading-[1.5] text-[var(--c-mist)]" />
             <Lines
               lines={[h.roles.join(' · ')]}
               className="f-mono uppercase text-[11px] md:text-[0.83vw] leading-[1.6] text-[var(--c-grey)]"

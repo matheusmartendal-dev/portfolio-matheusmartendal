@@ -411,7 +411,7 @@ export function getContent(lang: Lang) {
       title: t('Design que conecta pessoas e negócios', 'Design that connects people and business'),
       intro: ['Matheus Martendal'],
       scroll: t('[ Role para baixo ]', '[ Scroll down ]'),
-      roles: ['AI Product Designer', 'AI Builder', 'Web & UI Design', 'AI Automation & Solutions', 'Digital Products'],
+      roles: ['AI Product Designer', 'AI Builder', 'UX UI'],
       availability: t('Remoto, híbrido e presencial', 'Remote, hybrid & on-site'),
     },
     work: {
